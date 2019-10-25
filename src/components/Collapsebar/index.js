@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 
-class Collapsebar extends Component {
+class CollapseBar extends Component {
   render() {
+    const {children} = this.props
     return (
       <div>
-        Collapsebar
+        {children}
       </div>
     )
   }
 }
 
-export default Collapsebar
+export default CollapseBar

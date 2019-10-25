@@ -3,7 +3,7 @@ export default {
     minHeight: '100vh'
   },
   collapsebar: {
-    position: 'fixed',
+    position: 'absolute',
     top: 64,
     left: 0,
     zIndex: 1,

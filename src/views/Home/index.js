@@ -1,24 +1,51 @@
 import React, { Component } from 'react'
 import injectSheet from 'react-jss'
-import { Layout } from 'antd'
+import { Layout, Icon } from 'antd'
 import style from './style'
-import Collapsebar from '@/components/Collapsebar'
+import HeaderBar from '@/components/HeaderBar'
+import CollapseBar from '@/components/CollapseBar'
+import SiderNav from '@/components/SiderNav'
+import MainContent from '@/components/MainContent'
 
 const { Header, Content, Sider } = Layout;
 
 @injectSheet(style)
 class Home extends Component {
+  state = {
+    collapsed: false,
+    theme: 'light',
+    mode: 'inline'
+  }
+  toggle = () => {
+    this.setState({
+      collapsed: !this.state.collapsed,
+      theme: 'light',
+      mode: 'inline'
+    });
+  }
   render() {
     const { classes } = this.props
+    const { theme, mode, collapsed } = this.state
     return <Layout className={classes.homeLayout}>
-      <Header>头部</Header>
+      <Header>
+        <HeaderBar />
+      </Header>
       <div className={classes.collapsebar}>
-        <Collapsebar />
+        <CollapseBar>
+          <Icon
+            className="trigger"
+            type={collapsed ? 'menu-unfold' : 'menu-fold'}
+            onClick={this.toggle}/>
+        </CollapseBar>
       </div>
       <Layout>
-        <Sider theme='light' className={classes.homeSider}>侧边栏</Sider>
+        <Sider theme={theme} mode={mode} className={classes.homeSider} collapsed={collapsed}>
+          <SiderNav theme={theme} mode={mode} collapsed={collapsed} />
+        </Sider>
         <Layout className={classes.homeContentLayout}>
-          <Content className={classes.homeContent}>主内容</Content>
+          <Content className={classes.homeContent}>
+            <MainContent />
+          </Content>
         </Layout>
       </Layout>
     </Layout>
