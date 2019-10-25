@@ -2,6 +2,7 @@ import React, { Component, Suspense } from 'react';
 import DelayLoading from '../DelayLoading';
 import ErrorBoundary from '../ErrorBoundary';
 
+// 懒加载组件
 function AsyncComponent(WrappedComponent) {
   return class extends Component {
     componentDidMount() {

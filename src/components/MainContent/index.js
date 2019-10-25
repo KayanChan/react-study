@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { withRouter, Switch, Redirect } from 'react-router-dom'
+import { withRouter, Switch, Redirect, Route } from 'react-router-dom'
 import ProtectedRoute from '@/components/ProtectedRoute'
+import NotFound from '@/components/NotFound'
 import Routes from '@/router/config'
 
 @withRouter
@@ -17,12 +18,14 @@ class MainContent extends Component {
     return (
         <div style={{padding: 16, position: 'relative'}}>
           <Switch>
-              {
-                Routes && Routes.length && Routes.map(route => {
-                  return route.component ? this.mountRoute(route): this.mountSubRoute(route)
-                })
-              }
+            {
+              Routes && Routes.length && Routes.map(route => {
+                return route.component ? this.mountRoute(route): this.mountSubRoute(route)
+              })
+            }
+            {/* 默认路由 */}
             <Redirect exact from='/' to='/home/database' />
+            <Route component={NotFound}/>
           </Switch>
         </div>
     )
