@@ -6,11 +6,11 @@ const { SubMenu } = Menu
 
 class CustomMenu extends Component {
   state = {
-    openKeys: [], // 当前展开的 SubMenu 菜单项 key 数组
-    selectedKeys: [] // 当前选中的菜单项 key 数组
+    // openKeys: [], // 当前展开的 SubMenu 菜单项 key 数组
+    // selectedKeys: [] // 当前选中的菜单项 key 数组
   }
   onOpenChange = () => {
-    console.log('SubMenu 展开/关闭的回调')
+    // console.log('SubMenu 展开/关闭的回调')
   }
   renderMenuItem = ({ key, icon, title }) => {
     return (
@@ -28,7 +28,6 @@ class CustomMenu extends Component {
       <SubMenu key={key} title={<span>{icon && <Icon type={icon}/>}<span>{title}</span></span>}>
         {
           subRoutes && subRoutes.map(item => {
-            console.log(item)
             return item.subRoutes && item.subRoutes.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item)
           })
         }
@@ -37,13 +36,12 @@ class CustomMenu extends Component {
   }
 
   render() {
-    const { openKeys, selectedKeys } = this.state
-    const { menus, theme, mode, collapsed } = this.props
+    // const { openKeys, selectedKeys } = this.state
+    const { menus, theme, mode } = this.props
     return (
       <Menu
         theme={theme}
         mode={mode}
-        inlineCollapsed={collapsed}
         // openKeys={openKeys}
         // selectedKeys={selectedKeys}
         onOpenChange={this.onOpenChange}

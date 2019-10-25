@@ -4,13 +4,12 @@ import menus from '@/router/config'
 
 class SiderNav extends Component {
   render() {
-    const { theme, mode, collapsed } = this.props
+    const { theme, mode } = this.props
     return (
       <CustomMenu
         menus={menus}
         theme={theme}
-        mode={mode}
-        collapsed={collapsed}/>
+        mode={mode}/>
     )
   }
 }

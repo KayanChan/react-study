@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
-class About extends Component {
+class BasicForm extends Component {
   render() {
     return (
-      <div>About</div>
+      <div>BasicForm</div>
     )
   }
 }
 
-export default About
+export default BasicForm

@@ -40,7 +40,7 @@ class Home extends Component {
       </div>
       <Layout>
         <Sider theme={theme} mode={mode} className={classes.homeSider} collapsed={collapsed}>
-          <SiderNav theme={theme} mode={mode} collapsed={collapsed} />
+          <SiderNav theme={theme} mode={mode}/>
         </Sider>
         <Layout className={classes.homeContentLayout}>
           <Content className={classes.homeContent}>
