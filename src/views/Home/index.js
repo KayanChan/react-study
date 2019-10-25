@@ -3,7 +3,6 @@ import injectSheet from 'react-jss'
 import { Layout, Icon } from 'antd'
 import style from './style'
 import HeaderBar from '@/components/HeaderBar'
-import CollapseBar from '@/components/CollapseBar'
 import SiderNav from '@/components/SiderNav'
 import MainContent from '@/components/MainContent'
 
@@ -18,9 +17,7 @@ class Home extends Component {
   }
   toggle = () => {
     this.setState({
-      collapsed: !this.state.collapsed,
-      theme: 'light',
-      mode: 'inline'
+      collapsed: !this.state.collapsed
     });
   }
   render() {
@@ -31,16 +28,14 @@ class Home extends Component {
         <HeaderBar />
       </Header>
       <div className={classes.collapsebar}>
-        <CollapseBar>
-          <Icon
-            className="trigger"
-            type={collapsed ? 'menu-unfold' : 'menu-fold'}
-            onClick={this.toggle}/>
-        </CollapseBar>
+        <Icon
+          className="trigger"
+          type={collapsed ? 'menu-unfold' : 'menu-fold'}
+          onClick={this.toggle}/>
       </div>
       <Layout>
         <Sider theme={theme} mode={mode} className={classes.homeSider} collapsed={collapsed}>
-          <SiderNav theme={theme} mode={mode}/>
+          <SiderNav theme={theme} mode={mode} collapsed={collapsed}/>
         </Sider>
         <Layout className={classes.homeContentLayout}>
           <Content className={classes.homeContent}>
