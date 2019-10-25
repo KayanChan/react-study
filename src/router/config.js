@@ -1,5 +1,5 @@
 import { lazy } from 'react'
-import AsyncComponent from '@/components/HOC/AsyncComponent'
+
 
 const Database = lazy(() => import(/* webpackChunkName: "Database" */'@/components/Database'))
 const BasicForm = lazy(() => import(/* webpackChunkName: "BasicForm" */'@/components/General/Form/BasicForm'))
@@ -10,7 +10,7 @@ const routes = [
     title: '数据',
     icon: 'pie-chart',
     key: '/home/database',
-    component: AsyncComponent(Database)
+    component: Database
   },
   {
     title: '常用组件',
@@ -26,7 +26,7 @@ const routes = [
             title: '基础表单',
             key: '/home/general/form/basic',
             icon: '',
-            component: AsyncComponent(BasicForm)
+            component: BasicForm
           }
         ]
       }
@@ -41,7 +41,7 @@ const routes = [
         title: '信息',
         key: '/home/about/info',
         icon: 'info',
-        component: AsyncComponent(Info)
+        component: Info
       }
     ]
   }

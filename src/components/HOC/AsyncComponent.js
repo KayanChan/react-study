@@ -3,10 +3,10 @@ import DelayLoading from '../DelayLoading';
 import ErrorBoundary from '../ErrorBoundary';
 
 // 懒加载组件
-function AsyncComponent(WrappedComponent) {
+function AsyncComponent(WrappedComponent, title) {
   return class extends Component {
     componentDidMount() {
-      console.log('load finished');
+      document.title = title;
     }
     render() {
       return (

@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { withRouter, Switch, Redirect, Route } from 'react-router-dom'
+import AsyncComponent from '@/components/HOC/AsyncComponent'
 import ProtectedRoute from '@/components/ProtectedRoute'
 import NotFound from '@/components/NotFound'
 import Routes from '@/router/config'
 
 @withRouter
 class MainContent extends Component {
-  mountRoute = ({key, component}) => {
-    return component && <ProtectedRoute exact key={key} path={key} component={component}/>
+  mountRoute = ({key, component, title}) => {
+    return component && <ProtectedRoute exact key={key} path={key} component={AsyncComponent(component, title)}/>
   }
   mountSubRoute = ({key, subRoutes}) => {
     return subRoutes && subRoutes.length && subRoutes.map(subRoute => {
