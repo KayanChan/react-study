@@ -1,13 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {BrowserRouter} from 'react-router-dom'
+import './App.css'
+import Router from '@/router'
+// import logo from './logo.svg'
 
 function App() {
   return (
-    <div>
-      <img src={logo} alt="logo" />
-    </div>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   );
 }
 
-export default App;
+export default App
