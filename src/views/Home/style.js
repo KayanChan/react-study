@@ -2,11 +2,10 @@ export default {
   homeLayout: {
     minHeight: '100vh'
   },
-  collapsebar: {
-    position: 'absolute',
-    top: 64,
-    left: 0,
-    zIndex: 1,
+  homeCollapsebarLayout: {
+    backgroundColor: '#FFF'
+  },
+  homeCollapsebar: {
     width: '100%',
     height: 30,
     lineHeight: '30px',
@@ -16,10 +15,10 @@ export default {
     transition: 'all 0.2s'
   },
   homeSider: {
-    paddingTop: 30
+    paddingTop: 0
   },
   homeContentLayout: {
-    marginTop: 30
+    marginTop: 0
   },
   homeContent: {
     margin: 0,

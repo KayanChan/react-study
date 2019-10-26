@@ -27,14 +27,18 @@ class Home extends Component {
       <Header>
         <HeaderBar />
       </Header>
-      <div className={classes.collapsebar}>
-        <Icon
-          className="trigger"
-          type={collapsed ? 'menu-unfold' : 'menu-fold'}
-          onClick={this.toggle}/>
+      <div
+        className={classes.homeCollapsebarLayout}
+        style={collapsed ? {paddingLeft: 0} : {paddingLeft: 200}}>
+        <div className={classes.homeCollapsebar}>
+          <Icon
+            className="trigger"
+            type={collapsed ? 'menu-unfold' : 'menu-fold'}
+            onClick={this.toggle}/>
+        </div>
       </div>
       <Layout>
-        <Sider theme={theme} mode={mode} className={classes.homeSider} collapsed={collapsed}>
+        <Sider width={200} theme={theme} mode={mode} className={classes.homeSider} collapsed={collapsed}>
           <SiderNav theme={theme} mode={mode} collapsed={collapsed}/>
         </Sider>
         <Layout className={classes.homeContentLayout}>

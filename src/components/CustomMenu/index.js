@@ -6,32 +6,21 @@ const { SubMenu } = Menu
 
 @withRouter
 class CustomMenu extends Component {
-  state = {}
-  // onOpenChange = (openKeys) => {
-  //   // 收起的二级菜单 openKeys => []
-  //   // 展开的二级菜单 openKeys => ["/home/about"]
-  //   // console.log(openKeys)
+  getDefaultOpenKeys = (pathname) => {
+    if(this.props.collapsed) return []
 
-  //   // 处理第一层父层菜单的
-  //   if (openKeys.length === 0 || openKeys.length === 1) {
-  //     return this.setState({
-  //       openKeys
-  //     })
-  //   }
+    const level = pathname.split('/')
+    let keys = []
+    for(let i=3; i<level.length; i++) {
+      keys.push(level.slice(0, i).join('/'))
+    }
+    return keys
+  }
 
-  //   // 获取最新的菜单
-  //   const latestOpenKey = openKeys[openKeys.length - 1]
-  //   // 判断最新的菜单级别是不是第一层父层菜单
-  //   if (latestOpenKey.includes(openKeys[0])) {
-  //     this.setState({
-  //       openKeys
-  //     })
-  //   } else {
-  //     this.setState({
-  //       openKeys: [latestOpenKey]
-  //     })
-  //   }
-  // }
+  state = {
+    defaultSelectedKeys: [this.props.location.pathname],
+    defaultOpenKeys: this.getDefaultOpenKeys(this.props.location.pathname)
+  }
   renderMenuItem = ({ key, icon, title }) => {
     return (
       <Menu.Item key={key}>
@@ -55,13 +44,15 @@ class CustomMenu extends Component {
     )
   }
   render() {
-    const { menus, theme, mode } = this.props
+    const { defaultSelectedKeys, defaultOpenKeys } = this.state
+    const { menus, theme, mode, history } = this.props
     return (
       <Menu
         theme={theme}
         mode={mode}
-        onOpenChange={this.onOpenChange}
-        onClick={({key}) => this.setState({selectedKeys: [key]})}>
+        selectedKeys={[history.location.pathname]}
+        defaultSelectedKeys={defaultSelectedKeys}
+        defaultOpenKeys={defaultOpenKeys}>
           {menus && menus.map(item => {
             return (item.subRoutes && item.subRoutes.length) ? (this.renderSubMenu(item)) : this.renderMenuItem(item)
           })}

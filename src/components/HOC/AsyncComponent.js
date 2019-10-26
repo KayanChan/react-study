@@ -12,7 +12,8 @@ function AsyncComponent(WrappedComponent, title) {
       return (
         <ErrorBoundary>
           <Suspense fallback={<DelayLoading />}>
-            <WrappedComponent {...this.props} />
+            {/* 给组件加上key，让router的path属性（params）指向组件的key，就可以实现，组件的重构 */}
+            <WrappedComponent {...this.props} key={this.props.location.pathname}/>
           </Suspense>
         </ErrorBoundary>
       )
