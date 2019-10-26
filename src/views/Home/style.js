@@ -18,10 +18,14 @@ export default {
     paddingTop: 0
   },
   homeContentLayout: {
-    marginTop: 0
+    marginTop: 0,
+    padding: 20
+  },
+  homeBreadcrumb: {
+    marginBottom: 10
   },
   homeContent: {
     margin: 0,
-    padding: 24
+    backgroundColor: '#FFF'
   }
 }

@@ -17,7 +17,7 @@ class MainContent extends Component {
   }
   render() {
     return (
-        <div style={{padding: 16, position: 'relative'}}>
+        <div style={{position: 'relative'}}>
           <Switch>
             {
               Routes && Routes.length && Routes.map(route => {

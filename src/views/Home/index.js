@@ -5,6 +5,7 @@ import style from './style'
 import HeaderBar from '@/components/HeaderBar'
 import SiderNav from '@/components/SiderNav'
 import MainContent from '@/components/MainContent'
+import BreadcrumbNav from '../../components/BreadcrumbNav'
 
 const { Header, Content, Sider } = Layout;
 
@@ -42,6 +43,9 @@ class Home extends Component {
           <SiderNav theme={theme} mode={mode} collapsed={collapsed}/>
         </Sider>
         <Layout className={classes.homeContentLayout}>
+          <div className={classes.homeBreadcrumb}>
+            <BreadcrumbNav />
+          </div>
           <Content className={classes.homeContent}>
             <MainContent />
           </Content>
