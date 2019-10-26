@@ -21,6 +21,7 @@ class CustomMenu extends Component {
     defaultSelectedKeys: [this.props.location.pathname],
     defaultOpenKeys: this.getDefaultOpenKeys(this.props.location.pathname)
   }
+
   renderMenuItem = ({ key, icon, title }) => {
     return (
       <Menu.Item key={key}>
@@ -43,6 +44,7 @@ class CustomMenu extends Component {
       </SubMenu>
     )
   }
+
   render() {
     const { defaultSelectedKeys, defaultOpenKeys } = this.state
     const { menus, theme, mode, history } = this.props
