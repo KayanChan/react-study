@@ -2,13 +2,16 @@ import React from 'react'
 import {BrowserRouter} from 'react-router-dom'
 import './App.css'
 import Router from '@/router'
-// import logo from './logo.svg'
+import { Provider } from 'mobx-react'
+import store from '@/store'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Router />
-    </BrowserRouter>
+    <Provider {...store}>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+    </Provider>
   );
 }
 
