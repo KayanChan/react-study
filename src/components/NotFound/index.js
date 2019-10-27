@@ -6,7 +6,7 @@ class NotFound extends Component {
   state = {
     seconds: 3
   }
-  count = () => {
+  _count = () => {
 
     clearInterval(this.timer)
 
@@ -21,12 +21,12 @@ class NotFound extends Component {
                 // this.props.history.push({pathname: '/'})
             }
             // 循环自调用
-            this.count()
+            this._count()
         })
     }, 1000)
   }
   componentDidMount() {
-    this.count();
+    this._count();
   }
   componentWillUnmount() {
     clearInterval(this.timer)

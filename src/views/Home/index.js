@@ -22,7 +22,7 @@ class Home extends Component {
     });
   }
   render() {
-    const { classes } = this.props
+    const { classes, location } = this.props
     const { theme, mode, collapsed } = this.state
     return <Layout className={classes.homeLayout}>
       <Header>
@@ -44,7 +44,7 @@ class Home extends Component {
         </Sider>
         <Layout className={classes.homeContentLayout}>
           <div className={classes.homeBreadcrumb}>
-            <BreadcrumbNav />
+            <BreadcrumbNav key={location.pathname}/>
           </div>
           <Content className={classes.homeContent}>
             <MainContent />

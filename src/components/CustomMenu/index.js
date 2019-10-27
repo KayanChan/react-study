@@ -22,7 +22,7 @@ class CustomMenu extends Component {
     defaultOpenKeys: this.getDefaultOpenKeys(this.props.location.pathname)
   }
 
-  renderMenuItem = ({ key, icon, title }) => {
+  _renderMenuItem = ({ key, icon, title }) => {
     return (
       <Menu.Item key={key}>
         <Link to={key}>
@@ -33,12 +33,12 @@ class CustomMenu extends Component {
     )
   }
 
-  renderSubMenu = ({ key, icon, title, subRoutes }) => {
+  _renderSubMenu = ({ key, icon, title, subRoutes }) => {
     return (
       <SubMenu key={key} title={<span>{icon && <Icon type={icon}/>}<span>{title}</span></span>}>
         {
           subRoutes && subRoutes.map(item => {
-            return item.subRoutes && item.subRoutes.length > 0 ? this.renderSubMenu(item) : this.renderMenuItem(item)
+            return item.subRoutes && item.subRoutes.length > 0 ? this._renderSubMenu(item) : this._renderMenuItem(item)
           })
         }
       </SubMenu>
@@ -56,7 +56,7 @@ class CustomMenu extends Component {
         defaultSelectedKeys={defaultSelectedKeys}
         defaultOpenKeys={defaultOpenKeys}>
           {menus && menus.map(item => {
-            return (item.subRoutes && item.subRoutes.length) ? (this.renderSubMenu(item)) : this.renderMenuItem(item)
+            return (item.subRoutes && item.subRoutes.length) ? (this._renderSubMenu(item)) : this._renderMenuItem(item)
           })}
       </Menu>
     )
