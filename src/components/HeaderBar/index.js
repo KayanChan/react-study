@@ -14,15 +14,6 @@ class HeaderBar extends Component {
   render() {
     const { classes } = this.props
     const { logo, company } = this.state
-    const menu = (
-      <Menu className='menu'>
-        <Menu.ItemGroup title='用户中心' className='menu-group'>
-          <Menu.Item>你好 -</Menu.Item>
-          <Menu.Item>个人信息</Menu.Item>
-          <Menu.Item><span onClick={this.logout}>退出登录</span></Menu.Item>
-        </Menu.ItemGroup>
-      </Menu>
-    )
     return (
       <div className={classes.headerLayout}>
         <Link className={classes.headerLogo} to='/'>

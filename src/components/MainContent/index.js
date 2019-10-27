@@ -7,12 +7,12 @@ import Routes from '@/router/config'
 
 @withRouter
 class MainContent extends Component {
-  mountRoute = ({key, component, title}) => {
+  _mountRoute = ({key, component, title}) => {
     return component && <ProtectedRoute exact key={key} path={key} component={AsyncComponent(component, title)}/>
   }
-  mountSubRoute = ({key, subRoutes}) => {
+  _mountSubRoute = ({key, subRoutes}) => {
     return subRoutes && subRoutes.length && subRoutes.map(subRoute => {
-      return subRoute.component ? this.mountRoute(subRoute) : this.mountSubRoute(subRoute)
+      return subRoute.component ? this._mountRoute(subRoute) : this._mountSubRoute(subRoute)
     })
   }
   render() {
@@ -21,7 +21,7 @@ class MainContent extends Component {
           <Switch>
             {
               Routes && Routes.length && Routes.map(route => {
-                return route.component ? this.mountRoute(route): this.mountSubRoute(route)
+                return route.component ? this._mountRoute(route): this._mountSubRoute(route)
               })
             }
             {/* 默认路由 */}

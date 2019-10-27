@@ -6,85 +6,62 @@ import { Checkbox, Card, Icon } from 'antd'
 @injectSheet(style)
 class Data extends Component {
   state = {
-    panel1: {
-      checked: false,
-      disabled: false,
-      label: 'Panel 1'
-    },
-    panel2: {
-      checked: false,
-      disabled: false,
-      label: 'Panel 2'
-    },
-    panel3: {
-      checked: false,
-      disabled: false,
-      label: 'Panel 3'
-    }
+    controls: [
+      {id: 1, checked: true, disabled: false, label: 'panel 1'},
+      {id: 2, checked: true, disabled: false, label: 'panel 2'},
+      {id: 3, checked: true, disabled: false, label: 'panel 3'}
+    ]
   }
-  onChangePanel1 = e => {
-    // console.log('checked = ', e.target.checked);
-    let panel1 = {...this.state.panel1, checked: e.target.checked}
+
+  _onChange = (e, idx) => {
+    let ctrls = [...this.state.controls]
+    ctrls[idx].checked = e.target.checked
     this.setState({
-      panel1: panel1
+      controls: ctrls
     })
   }
-  onChangePanel2 = e => {
-    // console.log('checked = ', e.target.checked);
-    let panel2 = {...this.state.panel2, checked: e.target.checked}
-    this.setState({
-      panel2: panel2
+  _closePanel = (ctrlId) => {
+    let ctrls = [...this.state.controls]
+    let idx = ctrls.findIndex((value) => {
+      return value.id === ctrlId
     })
-  }
-  onChangePanel3 = e => {
-    // console.log('checked = ', e.target.checked);
-    let panel3 = {...this.state.panel3, checked: e.target.checked}
+    ctrls[idx].checked = false
     this.setState({
-      panel3: panel3
+      controls: ctrls
     })
   }
   render() {
     const { classes } = this.props
-    const { panel1, panel2, panel3 } = this.state
+    const { controls } = this.state
     return (
       <div className={classes.widgetPanel}>
         <div className={classes.checkboxBar}>
-          <Checkbox
-            checked={panel1.checked}
-            disabled={panel1.disabled}
-            onChange={this.onChangePanel1}>
-            {panel1.label}
-          </Checkbox>
-          <Checkbox
-            checked={panel2.checked}
-            disabled={panel2.disabled}
-            onChange={this.onChangePanel2}>
-            {panel2.label}
-          </Checkbox>
-          <Checkbox
-            checked={panel3.checked}
-            disabled={panel3.disabled}
-            onChange={this.onChangePanel3}>
-            {panel3.label}
-          </Checkbox>
+          {
+            controls.map((ctrl, index) => {
+              return <Checkbox key={ctrl.id} checked={ctrl.checked} disabled={ctrl.disabled}
+                onChange={(e) => this._onChange(e, index)}>
+                {ctrl.label}
+              </Checkbox>
+            })
+          }
         </div>
         <div className={classes.cardPanel}>
-          <div className={classes.cardItem}>
-            <Card title="Panel 1" extra={<Icon type="close" className={classes.pointer}/>}>
+          <div className={classes.cardItem} style={controls[0].checked ? {display: 'block'} : {display: 'none'}}>
+            <Card title="Panel 1" extra={<Icon type="close" className={classes.pointer} onClick={() => this._closePanel(1)}/>}>
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
             </Card>
           </div>
-          <div className={classes.cardItem}>
-            <Card title="Panel 2" extra={<Icon type="close" className={classes.pointer}/>}>
+          <div className={classes.cardItem} style={controls[1].checked ? {display: 'block'} : {display: 'none'}}>
+            <Card title="Panel 2" extra={<Icon type="close" className={classes.pointer} onClick={() => this._closePanel(2)}/>}>
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
             </Card>
           </div>
-          <div className={classes.cardItem}>
-            <Card title="Panel 3" extra={<Icon type="close" className={classes.pointer}/>}>
+          <div className={classes.cardItem} style={controls[2].checked ? {display: 'block'} : {display: 'none'}}>
+            <Card title="Panel 3" extra={<Icon type="close" className={classes.pointer} onClick={() => this._closePanel(3)}/>}>
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
