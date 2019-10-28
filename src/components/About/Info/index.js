@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { createUseStyles } from 'react-jss'
 import sharedStyle from '@/styles/shared'
+import { Button } from 'antd'
+import { observer, inject } from 'mobx-react'
 
 const style = {
   infoLayout: {
@@ -9,23 +11,28 @@ const style = {
 }
 const useStyles = createUseStyles(style)
 
-function Info() {
-  useEffect(() => {
-    fetch('http://tag.dev.dtedu.com/tag/app-init-data', {
-      method: 'GET',
-      headers: {
-        'Content-Type':'application/json;charset=UTF-8'
-      },
-      mode: 'cors',
-      cache: 'default'
-    })
-    .then(res =>res.json())
-    .then((data) => {
-       console.log(data) 
-    })
-  })
+function Info(props) {
+  const [btnText, setBtnText] = useState('loading出现')
+
+  let timer = null
+
+  const { appStore } = props
+
+  function _showLoading() {
+    appStore.showLoading()
+    setBtnText('5秒后关闭')
+    if(timer) clearTimeout(timer)
+    timer = setTimeout(() => {
+      appStore.hideLoading()
+      setBtnText('loading出现')
+    }, 5000)
+  }
+
+
   const classes = useStyles()
-  return <div className={classes.infoLayout}>Info</div>
+  return <div className={classes.infoLayout}>
+    <Button type="primary" onClick={_showLoading}>{btnText}</Button>
+  </div>
 }
 
-export default Info
+export default inject('appStore')(observer(Info))

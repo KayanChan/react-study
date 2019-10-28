@@ -4,8 +4,12 @@ import AsyncComponent from '@/components/HOC/AsyncComponent'
 import ProtectedRoute from '@/components/ProtectedRoute'
 import NotFound from '@/components/NotFound'
 import Routes from '@/router/config'
+import { inject, observer } from 'mobx-react'
+import { Spin } from 'antd'
 
 @withRouter
+@inject('appStore')
+@observer
 class MainContent extends Component {
   _mountRoute = ({key, component, title}) => {
     return component && <ProtectedRoute exact key={key} path={key} component={AsyncComponent(component, title)}/>
@@ -16,8 +20,10 @@ class MainContent extends Component {
     })
   }
   render() {
+    const { appStore } = this.props
     return (
-        <div style={{position: 'relative'}}>
+      <Spin spinning={appStore.isLoading} size="large">
+        <div style={{position: 'relative', minHeight: '100%'}}>
           <Switch>
             {
               Routes && Routes.length && Routes.map(route => {
@@ -29,6 +35,7 @@ class MainContent extends Component {
             <Route component={NotFound}/>
           </Switch>
         </div>
+      </Spin>
     )
   }
 }

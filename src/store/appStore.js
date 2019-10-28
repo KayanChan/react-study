@@ -3,6 +3,7 @@ import { isAuthenticated, authenticateSuccess, logout } from '@/utils/token'
 
 class AppStore {
     @observable isLogin = !!isAuthenticated()
+    @observable isLoading = false
 
     @action toggleLogin(flag) {
         if(flag) {
@@ -14,6 +15,14 @@ class AppStore {
             // 退登，清空token
             logout()
         }
+    }
+
+    @action showLoading() {
+        this.isLoading = true
+    }
+
+    @action hideLoading() {
+        this.isLoading = false
     }
 }
 

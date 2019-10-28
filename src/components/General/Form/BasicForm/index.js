@@ -10,8 +10,6 @@ const style = {
 
 @injectsheet(style)
 class BasicForm extends Component {
-  componentDidMount() {
-  }
   render() {
     const { classes } = this.props
     return (
