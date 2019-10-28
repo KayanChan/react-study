@@ -1,5 +1,7 @@
 import appStore from './appStore'
+import chartData from './chartData'
 const store = {
-    appStore
+    appStore,
+    chartData
 }
 export default store

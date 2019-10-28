@@ -5,6 +5,7 @@ import { Checkbox, Card, Icon, Tooltip, Menu, Dropdown } from 'antd'
 import ColumneChart from './ColumnChart'
 import CardContent from './CardContent'
 
+
 @injectSheet(style)
 class Data extends Component {
   state = {
@@ -62,7 +63,7 @@ class Data extends Component {
             {card.isShowMore && (<Dropdown overlay={menu} placement="bottomLeft"><div className={classes.action}>
               <Icon type="more" onClick={() => this._moreAction(card.ctrlId)}/>
             </div></Dropdown>)}
-            <Tooltip placement="bottomLeft" title={'关闭'}>
+            <Tooltip placement="bottomLeft">
               <div className={classes.action}>
                 <Icon type="close" onClick={() => this._closePanel(card.ctrlId)}/>
               </div>

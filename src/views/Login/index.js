@@ -9,7 +9,6 @@ import { Button } from 'antd'
 class Login extends Component {
   componentDidMount () {
     const { isLogin } = this.props.appStore
-    console.log(isLogin)
     if(isLogin) {
       // 当浏览器用后退按钮回到登录页时
       // 判断登录页是否登录，是登录就重定向上个页面

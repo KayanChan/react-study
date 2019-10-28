@@ -10,5 +10,10 @@ export default {
     lineHeight: '24px',
     cursor: 'pointer',
     textAlign: 'center'
+  },
+  emptyData: {
+    position: 'relative',
+    top: '48%',
+    textAlign: 'center'
   }
 }
