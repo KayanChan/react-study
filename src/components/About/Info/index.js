@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { createUseStyles } from 'react-jss'
 import sharedStyle from '@/styles/shared'
 import { Button } from 'antd'

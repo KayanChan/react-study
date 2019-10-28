@@ -4,12 +4,21 @@ import injectsheet from 'react-jss'
 import style from './style'
 import { Badge, Icon, Tooltip } from 'antd'
 import logo from '@/assets/svgs/logo.svg'
+import { inject, observer } from 'mobx-react'
+import { withRouter } from 'react-router-dom'
 
+@withRouter
 @injectsheet(style)
+@inject('appStore')
+@observer
 class HeaderBar extends Component {
   state = {
     logo: logo,
     company: 'React Project'
+  }
+  _logout = () => {
+    this.props.appStore.toggleLogin(false)
+    this.props.history.push({pathname: '/login'})
   }
   render() {
     const { classes } = this.props
@@ -39,7 +48,7 @@ class HeaderBar extends Component {
                 <Icon type="user" />
               </Tooltip>
             </li>
-            <li>
+            <li onClick={this._logout}>
               <Tooltip placement="bottom" title={'退出登录'}>
                 <Icon type="logout" />
               </Tooltip>
