@@ -7,9 +7,11 @@ const style = {
     ...sharedStyle.contentPadding
   }
 }
-console.log(style)
+
 @injectsheet(style)
 class BasicForm extends Component {
+  componentDidMount() {
+  }
   render() {
     const { classes } = this.props
     return (
