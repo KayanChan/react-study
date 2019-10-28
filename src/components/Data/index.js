@@ -4,7 +4,7 @@ import injectSheet from 'react-jss'
 import { Checkbox, Card, Icon, Tooltip, Menu, Dropdown } from 'antd'
 import ColumneChart from './ColumnChart'
 import CardContent from './CardContent'
-
+// import PieChart from './PieChart'
 
 @injectSheet(style)
 class Data extends Component {
@@ -57,12 +57,19 @@ class Data extends Component {
       return <div
         key={card.id}
         className={classes.cardItem}
-        style={controls[this._getCtrlIdxById(card.ctrlId)].checked ? {display: 'block'} : {display: 'none'}}>
+        style={controls[this._getCtrlIdxById(card.ctrlId)].checked 
+          ? {display: 'block'} : {display: 'none'}}>
         <Card title={card.title} extra={
           <div className={classes.cardHandler}>
-            {card.isShowMore && (<Dropdown overlay={menu} placement="bottomLeft"><div className={classes.action}>
-              <Icon type="more" onClick={() => this._moreAction(card.ctrlId)}/>
-            </div></Dropdown>)}
+            {
+              card.isShowMore && 
+              (<Dropdown overlay={menu} placement="bottomLeft"
+                onClick={() => this._moreAction(card.ctrlId)}>
+                <div className={classes.action}>
+                <Icon type="more"/>
+                </div>
+              </Dropdown>)
+            }
             <Tooltip placement="bottomLeft">
               <div className={classes.action}>
                 <Icon type="close" onClick={() => this._closePanel(card.ctrlId)}/>

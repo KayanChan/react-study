@@ -25,7 +25,8 @@ class BreadcrumbNav extends Component {
             }
         }
 
-        getMatchMenu(routes)
+        // http://localhost:3000 不处理面包屑
+        if(pathname !== '/') getMatchMenu(routes)
         return breadcrumbData
     }
     componentDidMount () {
