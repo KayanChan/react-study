@@ -7,7 +7,7 @@ const Info = lazy(() => import(/* webpackChunkName: "Info" */'@/components/About
 
 const routes = [
   {
-    title: '数据',
+    title: '数据页',
     icon: 'pie-chart',
     key: '/home/data',
     component: Data

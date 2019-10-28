@@ -2,14 +2,9 @@ import React, { Component } from 'react'
 import style from './style'
 import injectSheet from 'react-jss'
 import { Checkbox, Card, Icon, Tooltip, Menu, Dropdown } from 'antd'
+import ColumneChart from './ColumnChart'
+import CardContent from './CardContent'
 
-const CardContent = () => {
-  return <div>
-      <p>Card content</p>
-      <p>Card content</p>
-      <p>Card content</p>
-  </div>
-}
 @injectSheet(style)
 class Data extends Component {
   state = {
@@ -21,7 +16,7 @@ class Data extends Component {
     cards: [
       {id: 'card1', ctrlId: 1, title: 'Panel 1', isShowMore: false, component: CardContent},
       {id: 'card2', ctrlId: 2, title: 'Panel 2', isShowMore: true, component: CardContent},
-      {id: 'card3', ctrlId: 3, title: 'Panel 3', isShowMore: false, component: CardContent}
+      {id: 'card3', ctrlId: 3, title: 'Panel 3', isShowMore: false, component: ColumneChart}
     ]
   }
   _getCtrlIdxById = (ctrlId) => {
