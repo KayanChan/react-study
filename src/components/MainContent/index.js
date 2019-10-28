@@ -25,7 +25,7 @@ class MainContent extends Component {
               })
             }
             {/* 默认路由 */}
-            <Redirect exact from='/' to='/home/database' />
+            <Redirect exact from='/' to='/home/data' />
             <Route component={NotFound}/>
           </Switch>
         </div>

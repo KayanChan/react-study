@@ -1,7 +1,7 @@
 import { lazy } from 'react'
 
 
-const Database = lazy(() => import(/* webpackChunkName: "Database" */'@/components/Database'))
+const Data = lazy(() => import(/* webpackChunkName: "Data" */'@/components/Data'))
 const BasicForm = lazy(() => import(/* webpackChunkName: "BasicForm" */'@/components/General/Form/BasicForm'))
 const Info = lazy(() => import(/* webpackChunkName: "Info" */'@/components/About/Info'))
 
@@ -9,8 +9,8 @@ const routes = [
   {
     title: '数据',
     icon: 'pie-chart',
-    key: '/home/database',
-    component: Database
+    key: '/home/data',
+    component: Data
   },
   {
     title: '常用组件',

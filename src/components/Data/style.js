@@ -23,7 +23,17 @@ export default {
         },
         width: '50%'
     },
-    pointer: {
-        cursor: 'pointer'
+    cardHandler: {
+        display: 'flex',
+        justifyContent: 'flex-end'
+    },
+    action: {
+        marginLeft: 10,
+        border: '1px solid #e8e8e8',
+        width: 24,
+        height: 24,
+        lineHeight: '24px',
+        cursor: 'pointer',
+        textAlign: 'center'
     }
 }

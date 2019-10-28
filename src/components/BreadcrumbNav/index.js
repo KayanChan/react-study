@@ -14,7 +14,7 @@ class BreadcrumbNav extends Component {
 
         function getMatchMenu(_routes) {
             let tmpRoutes
-            tmpRoutes = _routes.filter(route =>
+            tmpRoutes = _routes.filter(route => 
                 pathname.indexOf(route.key) !== -1
             )
 

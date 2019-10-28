@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import injectsheet from 'react-jss'
 import style from './style'
-import { Menu, Badge, Icon, Tooltip } from 'antd'
+import { Badge, Icon, Tooltip } from 'antd'
 import logo from '@/assets/svgs/logo.svg'
 
 @injectsheet(style)
