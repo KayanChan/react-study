@@ -1,6 +1,7 @@
 export default {
     checkboxBar: {
-        margin: 20
+        margin: 20,
+        textAlign: 'right'
     },
     cardPanel: {
         display: 'flex',

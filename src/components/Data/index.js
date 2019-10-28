@@ -57,21 +57,21 @@ class Data extends Component {
         key={card.id}
         className={classes.cardItem}
         style={controls[this._getCtrlIdxById(card.ctrlId)].checked ? {display: 'block'} : {display: 'none'}}>
-      <Card title={card.title} extra={
-        <div className={classes.cardHandler}>
-          {card.isShowMore && (<Dropdown overlay={menu} placement="bottomLeft"><div className={classes.action}>
-            <Icon type="more" onClick={() => this._moreAction(card.ctrlId)}/>
-          </div></Dropdown>)}
-          <Tooltip placement="bottom" title={'关闭'}>
-            <div className={classes.action}>
-              <Icon type="close" onClick={() => this._closePanel(card.ctrlId)}/>
-            </div>
-          </Tooltip>
-        </div>
-        }>
-          <card.component></card.component>
-      </Card>
-    </div>
+        <Card title={card.title} extra={
+          <div className={classes.cardHandler}>
+            {card.isShowMore && (<Dropdown overlay={menu} placement="bottomLeft"><div className={classes.action}>
+              <Icon type="more" onClick={() => this._moreAction(card.ctrlId)}/>
+            </div></Dropdown>)}
+            <Tooltip placement="bottomLeft" title={'关闭'}>
+              <div className={classes.action}>
+                <Icon type="close" onClick={() => this._closePanel(card.ctrlId)}/>
+              </div>
+            </Tooltip>
+          </div>
+          }>
+            <card.component></card.component>
+        </Card>
+      </div>
     })
     return (
       <div className={classes.widgetPanel}>
