@@ -1,9 +1,9 @@
 import { lazy } from 'react'
 
 
-const Data = lazy(() => import(/* webpackChunkName: "Data" */'@/components/Data'))
-const BasicForm = lazy(() => import(/* webpackChunkName: "BasicForm" */'@/components/General/Form/BasicForm'))
-const Info = lazy(() => import(/* webpackChunkName: "Info" */'@/components/About/Info'))
+const Data = lazy(() => import(/* webpackChunkName: "Data" */'@/views/Data'))
+const BasicForm = lazy(() => import(/* webpackChunkName: "BasicForm" */'@/views/General/BasicForm'))
+const Info = lazy(() => import(/* webpackChunkName: "Info" */'@/views/About/Info'))
 
 const routes = [
   {

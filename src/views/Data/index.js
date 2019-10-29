@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import style from './style'
 import injectSheet from 'react-jss'
 import { Checkbox, Card, Icon, Tooltip, Menu, Dropdown } from 'antd'
-import ColumneChart from './ColumnChart'
-import CardContent from './CardContent'
-// import PieChart from './PieChart'
+import ColumneChart from '@/components/ColumnChart'
+import CardContent from '@/components/CardContent'
 
 @injectSheet(style)
 class Data extends Component {

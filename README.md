@@ -150,7 +150,7 @@ yarn build
 8. utils: 工具类函数
     * token.js: 对token的读写操作
     * math.js: 数学类的工具函数
-    * helper.js：异步请求fetch的封装
+    * request.js：异步请求fetch的封装
 9. views: 页面级别的组件
 
 ### 文档输出

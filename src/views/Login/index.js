@@ -5,7 +5,7 @@ import { Button } from 'antd'
 import injectsheet from 'react-jss'
 import style from './style'
 // import api from '@/api/user'
-// import request from '@/utils/helper'
+// import request from '@/utils/request'
 
 @withRouter
 @injectsheet(style)

@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import injectSheet from 'react-jss'
 import { Layout, Icon } from 'antd'
 import style from './style'
-import HeaderBar from '@/components/HeaderBar'
-import SiderNav from '@/components/SiderNav'
-import MainContent from '@/components/MainContent'
-import BreadcrumbNav from '../../components/BreadcrumbNav'
+import HeaderBar from './HeaderBar'
+import SiderNav from './SiderNav'
+import MainContent from './MainContent'
+import BreadcrumbNav from './BreadcrumbNav'
 
 const { Header, Content, Sider } = Layout;
 
