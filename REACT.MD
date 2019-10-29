@@ -19,16 +19,16 @@ React是基于组件化的思想进行开发的js框架。
 ### 核心概念
 #### 组件
   1. 函数组件(**尽量使用无状态组件**)
-    * 接收唯一带有数据的`props`（代表属性）对象与并返回一个`React`元素
-    * 本质上就是`JavaScript`函数
-    * 无状态组件：不涉及到要`state`状态的操作
-    * 否则，利用React16.8新增特性`React Hook`处理`state`和生命周期等其他特性
-      ```javascript
-        function Welcome(props) {
-          // 使用ref来获取组件挂载到dom中后所指向的dom元素
-          return <h1>Hello, <span ref={(node) => ref = node}>{props.name}</span></h1>;
-        }
-      ```
+      * 接收唯一带有数据的`props`（代表属性）对象与并返回一个`React`元素
+      * 本质上就是`JavaScript`函数
+      * 无状态组件：不涉及到要`state`状态的操作
+      * 否则，利用React16.8新增特性`React Hook`处理`state`和生命周期等其他特性
+        ```javascript
+          function Welcome(props) {
+            // 使用ref来获取组件挂载到dom中后所指向的dom元素
+            return <h1>Hello, <span ref={(node) => ref = node}>{props.name}</span></h1>;
+          }
+        ```
 
 2. React.Component(**需要state、生命周期方法等推荐使用**)
     * 以ES6的形式来创建react的组件
