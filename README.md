@@ -4,6 +4,8 @@
 
 项目由[Create React App](https://github.com/facebook/create-react-app)启动
 
+[Github地址](https://github.com/KayanChan/react-study)
+
 ### 开发步骤
 1. 新建项目`react-study`
     ```bash

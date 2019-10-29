@@ -34,7 +34,7 @@
         // 无状态组件
         import { observer, inject } from 'mobx-react'
 
-        let FirstTry = () => {
+        const FirstTry = () => {
             const { appState } = this.props
             return (
               <div className="first-try">
@@ -44,7 +44,7 @@
             )
         })
 
-        export default inject('appStore')(observer(FirstTry))
+        export default inject('appStoreac')(observer(FirstTry))
       
         // @observer方式
         @observer

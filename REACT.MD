@@ -4,7 +4,7 @@
 #### ES6
 经过这两周的学习，对`React`的感受就是`all in js`，语法更加接近原生js。
 HTML通过`jsx -> js -> DOM`编译处理，而CSS则利用`CSS in JS`的形式。
-在react开发过程中，会大量地使用到ES6中的各种特性，例如`Class`、`import/export`等。
+在React开发过程中，大量运用到ES6的各种特性，例如`Class`、`import/export`、变量的解构、`Decorator`等等。
 
 #### JSX
 通过JSX语法在JavaScript中写HTML代码，其只有一个顶级元素。
@@ -13,8 +13,8 @@ HTML通过`jsx -> js -> DOM`编译处理，而CSS则利用`CSS in JS`的形式�
 
 #### 组件化思想
 React是基于组件化的思想进行开发的js框架。
-对比传统开发模式，组件化的模式降低了代码复杂度，提高了代码可读性和可维护性。
 每个组件的功能单一清晰，具备一定的复用性。
+对比传统开发模式，组件化的模式降低了代码复杂度，提高了代码可读性和可维护性。
 
 ### 核心概念
 #### 组件
@@ -111,10 +111,12 @@ React是基于组件化的思想进行开发的js框架。
 #### 生命周期管理
   * constructor: 组件自身的状态的初始化（state初始化）
 
-  * componentWillMount： 组件挂载开始之前，在组件调用`render`方法之前调用（Ajax 数据的拉取操作、一些定时器的启动）
+  * componentWillMount（新版使用static getDerivedStateFromProps()处理）： 组件挂载开始之前，在组件调用`render`方法之前调用（Ajax 数据的拉取操作、一些定时器的启动）
 
   * render: `DOM`元素已经插入页面，视图渲染
 
   * componentDidMount: 组件挂载完成以后，也就是`DOM`元素已经插入页面后调用（依赖的DOM，如动画的启动, 自动focus）
 
   * componentWillUnmount: 组件对应的`DOM`元素从页面中删除之前调用（定时器的清除）
+
+  * componentDidUpdate: 组件的`props`或`state`发生变化时会触发更新
