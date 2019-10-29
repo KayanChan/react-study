@@ -6,6 +6,18 @@
 
 [Github地址](https://github.com/KayanChan/react-study)
 
+### 运行命令
+```bash
+# install dependencies
+yarn
+
+# serve with hot reload at localhost:3000
+yarn start
+
+# build for production with minification
+yarn build
+```
+
 ### 开发步骤
 1. 新建项目`react-study`
     ```bash
