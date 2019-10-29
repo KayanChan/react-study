@@ -4,6 +4,8 @@ import { inject, observer } from 'mobx-react'
 import { Button } from 'antd'
 import injectsheet from 'react-jss'
 import style from './style'
+// import api from '@/api/user'
+// import request from '@/utils/helper'
 
 @withRouter
 @injectsheet(style)
@@ -19,6 +21,13 @@ class Login extends Component {
     }
   }
   _login = () => {
+    // request({
+    //   url: api.fetchLogin.url,
+    //   data: {},
+    //   method: api.fetchLogin.method
+    // }).then((data) => {
+    //   // 登录成功
+    // })
     this.props.appStore.toggleLogin(true)
     this._jumpPage()
   }

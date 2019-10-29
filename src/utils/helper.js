@@ -1,11 +1,11 @@
 import { message } from 'antd'
 let BASE_URL = ''
 
-function parseJSON(responese) {
-  return JSON.parse(responese)
+function parseJSON(response) {
+  return JSON.parse(response)
 }
 
-function checkStatus(responese) {
+function checkStatus(response) {
   if(response.status >= 200 && response.status < 500){
     return response
   }
