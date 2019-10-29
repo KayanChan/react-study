@@ -1,4 +1,5 @@
 import { message } from 'antd'
+import { getToken } from './token'
 let BASE_URL = ''
 
 function parseJSON(response) {
@@ -26,7 +27,8 @@ export default  function request(options = {}){
     })
   }
   options.headers={
-    'Content-Type':'application/json'
+    'Content-Type':'application/json',
+    'X-Token': getToken()
   }
   // credentials让浏览器发送包含凭据的请求（即使是跨域源）
   return fetch(BASE_URL + url, options, {credentials: 'include'})
