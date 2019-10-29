@@ -19,6 +19,7 @@ function Info(props) {
   const { appStore } = props
 
   function _showLoading() {
+    // 待解决的问题：存在内存泄露，组件销毁后，异步的操作还是继续
     appStore.showLoading()
     setBtnText('5秒后关闭')
     if(timer) clearTimeout(timer)
@@ -27,7 +28,6 @@ function Info(props) {
       setBtnText('loading出现')
     }, 5000)
   }
-
 
   const classes = useStyles()
   return <div className={classes.infoLayout}>

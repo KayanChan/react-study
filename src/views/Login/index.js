@@ -2,8 +2,11 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { inject, observer } from 'mobx-react'
 import { Button } from 'antd'
+import injectsheet from 'react-jss'
+import style from './style'
 
 @withRouter
+@injectsheet(style)
 @inject('appStore')
 @observer
 class Login extends Component {
@@ -26,9 +29,12 @@ class Login extends Component {
     this.props.history.push({pathname: '/'})
   }
   render() {
-    return (<div>
-      <h4>Login Page</h4>
-      <Button type="primary" onClick={this._login}>登录</Button>
+    const { classes } = this.props
+    return (<div className={classes.loginLayout}>
+      <div className={classes.loginWrapper}>
+        <h4 className={classes.h4}>Login Page</h4>
+        <Button type="primary" onClick={this._login}>登录</Button>
+      </div>
     </div>)
   }
 }
