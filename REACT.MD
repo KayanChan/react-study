@@ -3,13 +3,13 @@
 
 #### ES6
 经过这两周的学习，对`React`的感受就是`all in js`，语法更加接近原生js。
-HTML通过`jsx -> js -> DOM`编译处理，而CSS则利用`CSS in JS`的形式。
+通过JSX语法在JavaScript中写HTML代码，而CSS则利用`CSS in JS`的形式。
 在React开发过程中，大量运用到ES6的各种特性，例如`Class`、`import/export`、变量的解构、`Decorator`等等。
 
 #### JSX
-通过JSX语法在JavaScript中写HTML代码，其只有一个顶级元素。
+HTML通过`jsx -> js -> DOM`编译处理，其只有一个顶级元素。
 `JSX`语法实际用`JavaScript`对象来描述每一个`DOM`元素的结构。
-可结合`Virtual DOM`来提高页面渲染效率。
+可结合`Virtual DOM`和`React Diff`来处理真是DOM的变化，可达到提高页面渲染效率的目的。
 
 #### 组件化思想
 React是基于组件化的思想进行开发的js框架。
