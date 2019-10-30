@@ -6,16 +6,18 @@
 
 [Github地址](https://github.com/KayanChan/react-study)
 
-### 运行命令
+### 项目运行
+> 生产环境部署，服务器根目录指向build/下
+
 ```bash
-# install dependencies
-yarn
+# 安装依赖包
+npm install 或 yarn(推荐)
 
-# serve with hot reload at localhost:3000
-yarn start
+# 本地运行
+npm run dev 或 yarn start
 
-# build for production with minification
-yarn build
+# 生产环境
+npm run build 或 yarn build
 ```
 
 ### 开发步骤
@@ -63,7 +65,6 @@ yarn build
     * router/index.js：路由处理
     * 路由重定向(404，默认路由)、路由渲染、菜单高亮展开
     * `React(Suspense/Lazy)`实现路由懒加载
-    * `react-transition-group`实现路由跳转过渡动画 [文档](https://reactcommunity.org/react-transition-group/)
 6. UI组件库：[ant-design](https://ant.design/index-cn)
     * 安装
         ```bash
